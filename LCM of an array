@@ -1,0 +1,20 @@
+import math
+
+# Function to compute LCM of two numbers
+def lcm(a, b):
+    return abs(a * b) // math.gcd(a, b)
+
+# Function to compute LCM of a list of numbers
+def lcm_of_list(nums):
+    result = nums[0]  # Start with the first element
+    for num in nums[1:]:  # Iterate over the rest of the elements
+        result = lcm(result, num)  # Update the result with the LCM of the current pair
+    return result
+
+# Input processing
+n = int(input())  # Read number of elements
+nums = list(map(int, input().split()))  # Read the list of numbers
+
+# Calculate the LCM of the numbers and print it
+result = lcm_of_list(nums)
+print(result)
