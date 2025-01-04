@@ -1,0 +1,25 @@
+import math
+
+def count_coprime_pairs(nums):
+    # Remove duplicates by converting the list to a set
+    unique_nums = list(set(nums))
+    
+    coprime_count = 0
+    n = len(unique_nums)
+    
+    # Check each unique pair (i, j) with i < j
+    for i in range(n):
+        for j in range(i + 1, n):
+            # If gcd of the pair is 1, they are coprime
+            if math.gcd(unique_nums[i], unique_nums[j]) == 1:
+                coprime_count += 1
+    
+    return coprime_count
+
+# Input processing
+n = int(input())  # Read number of elements
+nums = list(map(int, input().split()))  # Read the list of numbers
+
+# Get the result and print it
+result = count_coprime_pairs(nums)
+print(result)
